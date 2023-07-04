@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 type UserData= {
   name: string;
@@ -45,13 +44,11 @@ export default function UserProfile() {
 			id="avatar"
 			className="flex h-12 w-12 cursor-pointer items-center"
 		>
-			<Image
+			<img
 			src="https://evan.beee.top/img/2023/07/04/ce77faad77bd58e5167c340f6362827c.webp"
 			id="ava-img"
 			className="gh-border m-0 ml-2 h-[42px] w-[42px] rounded-xl bg-gh-gray-1 p-1 dark:border-gh-gray-8 dark:bg-gh-gray-7"
       alt="Loading"
-      width={42}
-      height={42}
 			/>
 		</div>
 		</div>

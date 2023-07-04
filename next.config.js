@@ -6,7 +6,7 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'evan.beee.top',
             port: '',
-            pathname: '/**',
+            pathname: '/img/**',
           },
         ],
       },

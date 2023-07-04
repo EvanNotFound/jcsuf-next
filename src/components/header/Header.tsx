@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import SearchBox from "./SearchBox";
 
 
-const UserProfile = dynamic(() => import('@/components/header/UserProfile'), { ssr: true });
+const UserProfile = dynamic(() => import('@/components/header/UserProfile'), { ssr: false });
 
 export default function Header() {
 
