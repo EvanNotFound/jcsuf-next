@@ -5,7 +5,7 @@ export default function Footer() {
 		<footer className="flex w-full justify-center border-t-[1.5px] border-solid border-gh-border bg-gh-bg p-3 dark:border-gh-darkborder dark:bg-gh-subtledarkbg">
 			<div className="text-center items-center">
 				<div>
-					本服务器由
+					本站由
 					<a href="https://nextjs.org">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
