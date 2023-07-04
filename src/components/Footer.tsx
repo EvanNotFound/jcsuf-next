@@ -43,7 +43,7 @@ export default function Footer() {
 					强力驱动
 				</div>
 				<div className="mt-1">
-					<span className="ml-3">Build v2.0.0 alpha 5</span>
+					<span className="ml-3">Build v2.0.0 alpha 7</span>
 				</div>
 				<span id="resource-load" className="hidden"></span>
 			</div>
