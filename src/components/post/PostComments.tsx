@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { formatDateTime } from '@/components/ArticleColumn';
 import { Suspense, useState, useEffect } from 'react';
 import getUserInfo from '@/lib/getUserInfo';
+import { type } from 'os';
 
 const PostVote = dynamic(() => import('@/components/post/PostVote'));
 
@@ -13,11 +14,19 @@ type Props = {
     dislike: number;
     author: string;
     ctime: number;
+    avatar: string;
   }>;
 };
 
+type UserInfo = {
+  name: string;
+  avatar: string;
+};
+
+
+
 function PostComments({ comments }: Props) {
-  const [userInfos, setUserInfos] = useState([]);
+  const [userInfos, setUserInfos] = useState<UserInfo[]>([]);
 
   useEffect(() => {
     const fetchUserInfos = async () => {
@@ -39,7 +48,7 @@ function PostComments({ comments }: Props) {
   }, [comments]);
 
   const content = comments.map((comment, index) => {
-    const userInfo = userInfos[index];
+    const userInfo : UserInfo = userInfos[index];
     return (
       <div
         key={index}
