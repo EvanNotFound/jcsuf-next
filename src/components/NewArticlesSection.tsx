@@ -1,5 +1,5 @@
 import ArticleColumn from "@/components/ArticleColumn";
-import { getNewArticlesData } from "@/lib/newArticles";
+import { getNewArticlesData } from "@/lib/getNewArticles";
 import { getLoginStatus } from "@/lib/getLoginStatus";
 import { SyncIcon } from "@primer/octicons-react"
 

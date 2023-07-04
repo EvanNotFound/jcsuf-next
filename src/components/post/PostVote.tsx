@@ -6,10 +6,10 @@ export default function PostVote({ like, dislike, avatar } : { like: number, dis
 	return (
 		<div
 			id="votes"
-			className="flex flex-col justify-between gap-5 w-[70px] pr-3 border-r border-solid border-gh-border dark:border-gh-gray-8 pb-3 pt-2.5"
+			className="flex flex-col justify-between gap-5 w-[70px] pr-3 border-r border-solid border-gh-border dark:border-gh-darkborder pb-3 pt-2.5"
 		>
             <div className="flex flex-row justify-center items-center">
-                <div className=" p-0.5 gh-border rounded-xl">
+                <div className=" p-0.5 gh-border dark:border-gh-darkborder rounded-xl">
                     <img src={avatar} alt="" className="w-11 h-11 rounded-[9.2px]"/>
                 </div>
                 

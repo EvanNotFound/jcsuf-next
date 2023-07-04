@@ -36,10 +36,10 @@ export default async function Post({ params: { postId } }: Params) {
 						<div className="font-bold text-3xl border-b-2 border-solid border-gh-gray-1 p-3 dark:border-gh-gray-8 mb-5">
 							{post.title}
 						</div>
-						<div className="pl-3 gh-border dark:border-gh-darkborder  dark:bg-gh-subtledarkbg rounded-xl flex flex-row mb-6">
+						<div className="pl-3 gh-border dark:border-gh-darkborder  dark:bg-gh-darkbg rounded-xl flex flex-row mb-6">
 							<PostVote like={post.like} dislike={post.dislike} avatar={userInfo.avatar}/>
 							<div className="flex flex-col w-full">
-								<div className="h-8 bg-gh-bg w-full rounded-tr-xl border-b flex flex-row pl-4 items-center">
+								<div className="h-8 bg-gh-bg dark:bg-gh-subtledarkbg w-full rounded-tr-xl border-b border-gh-border dark:border-gh-darkborder flex flex-row pl-4 items-center">
 									<p className="text-sm font-bold">{userInfo.name}</p>
 									<p className="text-sm text-gh-gray-7 dark:text-gh-gray-2 ml-2">
 										{formatDateTime(post.ctime)}
