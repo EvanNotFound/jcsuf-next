@@ -1,4 +1,4 @@
-import { getNoticeData } from '@/lib/notice'
+import { getNoticeData } from '@/lib/getNoticeContent'
 
 export default async function NoticeSection() {
     const noticeData = await getNoticeData()
