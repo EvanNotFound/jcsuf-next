@@ -70,7 +70,7 @@ export default async function NewArticlesSection() {
 						author_name: string;
                         uid: number;
 					}) => (
-                        <ArticleColumn id={id} title={title} author={author} snapshot={snapshot} like={like} dislike={dislike} ccount={ccount} view={view} ctime={ctime} author_name={author_name} uid={uid} canDelete={canDelete} url={"/post/" + id} />
+                        <ArticleColumn id={id} title={title} author={author} snapshot={snapshot} like={like} dislike={dislike} ccount={ccount} view={view} ctime={ctime} author_name={author_name} uid={uid} canDelete={canDelete} url={"/post/" + id} key={id}/>
 
 					)
 				)}

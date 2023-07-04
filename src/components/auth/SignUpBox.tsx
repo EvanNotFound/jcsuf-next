@@ -1,7 +1,7 @@
 "use client";
 import { Box, FormControl, TextInput, Button, Link} from "@primer/react";
 
-export default function SignInBox() {
+export default function SignUpBox() {
 	return (
 		<Box>
             <section className="">
@@ -14,8 +14,12 @@ export default function SignInBox() {
                         <FormControl.Label>Password</FormControl.Label>
                         <TextInput sx={{width: '100%'}} />
                     </FormControl>
+                    <FormControl>
+                        <FormControl.Label>Confirm Password</FormControl.Label>
+                        <TextInput sx={{width: '100%'}} />
+                    </FormControl>
                     <div className="flex justify-center mt-2 gap-3">
-                        <Button variant="primary" block>Sign In</Button>
+                        <Button variant="primary" block>Sign up</Button>
 
                     </div>
                 </form>
