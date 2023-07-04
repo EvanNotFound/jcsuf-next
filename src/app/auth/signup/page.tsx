@@ -1,6 +1,13 @@
 import Header from "@/components/header/Header"
 import SignUpBox from "@/components/auth/SignUpBox"
 import Link from "next/link"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: '注册 - JCSUF',
+    description: '注册 JCSUF 账号',
+}
+
 export default function SignIn() {
     return (
         <div>

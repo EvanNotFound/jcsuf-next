@@ -1,4 +1,4 @@
-export async function getPostIdList() {
+export default async function getPostIdList() {
 	const res = await fetch("https://api.jcsuf.top/api/fetchnewarticle");
 	if (!res.ok) {
 		// This will activate the closest `error.js` Error Boundary
@@ -16,14 +16,3 @@ export async function getPostIdList() {
 	return idList;
     
 }
-
-export async function getPostDetails(postId: number) {
-    const res = await fetch(`https://api.jcsuf.top/api/articleinfo?aid=${postId}`)
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
-    const postData = await res.json()
-	
-    return postData
-  }

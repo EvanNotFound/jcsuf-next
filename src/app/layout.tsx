@@ -2,8 +2,14 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import Providers from "@/app/providers";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+	title: "JCSS 非官方自由论坛 - JCSUF",
+	description: "JCSS 非官方自由论坛 - JCSUF",
+}
 
 export default function RootLayout({
 	children,
@@ -12,7 +18,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<head>
+			{/* <head>
 				<meta charSet="UTF-8" />
 				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 				<meta
@@ -53,7 +59,7 @@ export default function RootLayout({
 					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743182420249575"
 					crossOrigin="anonymous"
 				></Script>
-			</head>
+			</head> */}
 
 			<body className={inter.className}>
 				<Providers>{children}</Providers>

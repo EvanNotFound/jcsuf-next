@@ -1,4 +1,21 @@
 import Link from "next/link";
+import {ArrowUpIcon, ArrowDownIcon, CommentDiscussionIcon, FlameIcon} from '@primer/octicons-react'
+
+type ArticleColumnProps = {
+    id: number,
+    title: string,
+    ctime: number,
+    snapshot: string,
+    like: number,
+    dislike: number,
+    ccount: number,
+    view: number,
+    canDelete: boolean,
+    url: string,
+    author_name: string,
+    uid: number,
+    author: number
+}
 
 export function formatDateTime(date: number) {
 	var dateObj = new Date(date);
@@ -14,7 +31,7 @@ export function formatDateTime(date: number) {
 	}
 }
 
-export default function ArticleColumn(props: any) {
+export default function ArticleColumn(props: ArticleColumnProps) {
     return (
         <div
         className="mx-2 flex flex-row justify-between md:mx-6"
@@ -40,27 +57,27 @@ export default function ArticleColumn(props: any) {
         >
             <div className="flex flex-wrap justify-center gap-1.5">
                 <div className="article-info-stats-item">
-                    <i className="fa-solid fa-up"></i>
-                    <p className="ml-1 text-sm text-gh-gray-8 dark:text-gh-gray-2">
+                    <ArrowUpIcon size={16} />
+                    <p className="ml-0.5 text-sm text-gh-gray-8 dark:text-gh-gray-2">
                         {props.like}
                     </p>
                 </div>
 
                 <div className="article-info-stats-item">
-                    <i className="fa-solid fa-message-lines text-sm"></i>
+                    <CommentDiscussionIcon size={16} />
                     <p className="ml-1 text-sm text-gh-gray-8 dark:text-gh-gray-2">
                         {props.ccount}
                     </p>
                 </div>
                 <div className="article-info-stats-item">
-                    <i className="fa-solid fa-down"></i>
-                    <p className="ml-1 text-sm text-gh-gray-8 dark:text-gh-gray-2">
+                    <ArrowDownIcon size={16} />
+                    <p className="ml-0.5 text-sm text-gh-gray-8 dark:text-gh-gray-2">
                         {props.dislike}
                     </p>
                 </div>
                 <div className="article-info-stats-item">
-                    <i className="fa-solid fa-fire"></i>
-                    <p className="ml-1 text-sm text-gh-gray-8 dark:text-gh-gray-2">
+                    <FlameIcon size={16} />
+                    <p className="ml-0.5 text-sm text-gh-gray-8 dark:text-gh-gray-2">
                         {props.view}
                     </p>
                 </div>

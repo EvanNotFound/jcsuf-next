@@ -1,9 +1,12 @@
-'use client'
 import Header from "@/components/header/Header"
 import SignInBox from "@/components/auth/SignInBox"
 import Link from "next/link"
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+    title: '登录 - JCSUF',
+    description: '登录 JCSUF 账号',
+}
 
 const SignIn = () => {
 
