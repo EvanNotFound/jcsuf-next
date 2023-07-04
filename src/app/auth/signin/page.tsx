@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: '登录 JCSUF 账号',
 }
 
-const SignIn = () => {
+export default function SignIn() {
 
     return (
         <div>
@@ -28,4 +28,3 @@ const SignIn = () => {
     )
 }
 
-export default SignIn;

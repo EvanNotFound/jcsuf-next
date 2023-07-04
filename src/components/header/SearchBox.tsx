@@ -1,4 +1,5 @@
-"use client";
+"use client"
+import React from "react";
 import { TextInput } from "@primer/react";
 import { SearchIcon } from "@primer/octicons-react";
 
@@ -8,7 +9,8 @@ export default function SearchBox() {
 			className=""
 			id="category-displayer"
 		>
-            <TextInput aria-label="Search" placeholder="搜索帖子" id="search-content" leadingVisual={<SearchIcon />}/>
+			{/* Github Bug:  trailingVisual={SearchIcon} */}
+            <TextInput aria-label="Search" placeholder="搜索帖子" id="search-content" />
 		</div>
 
 	);

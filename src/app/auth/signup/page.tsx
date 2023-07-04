@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: '注册 JCSUF 账号',
 }
 
-export default function SignIn() {
+export default function SignUp() {
     return (
         <div>
             <Header />
