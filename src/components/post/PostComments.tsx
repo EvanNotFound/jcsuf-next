@@ -1,6 +1,6 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { formatDateTime } from '@/components/ArticleColumn';
+import { formatDateTime } from '@/components/templates/ArticleColumn';
 import { Suspense, useState, useEffect } from 'react';
 import getUserInfo from '@/lib/getUserInfo';
 import { type } from 'os';

@@ -1,5 +1,5 @@
 import getPostDetails from "@/lib/getPostDetails";
-import { formatDateTime } from "@/components/ArticleColumn";
+import { formatDateTime } from "@/components/templates/ArticleColumn";
 import Header from "@/components/header/Header";
 import { Suspense } from "react";
 import PostComments from "@/components/post/PostComments";

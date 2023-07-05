@@ -45,6 +45,10 @@ img {
   @apply flex w-5/12 flex-row items-center justify-center gh-border dark:border-gh-darkborder rounded-full hover:border-gh-gray-4 dark:hover:border-gh-gray-4 hover:text-gh-gray-4 dark:hover:text-gh-gray-6 cursor-pointer text-gh-border dark:text-gh-gray-5
 }
 
+.article-info-stats-item-loading {
+  @apply flex w-5/12 flex-row items-center justify-center rounded-full
+}
+
 
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,

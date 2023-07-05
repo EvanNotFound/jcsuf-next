@@ -10,7 +10,6 @@ type ArticleColumnProps = {
     dislike: number,
     ccount: number,
     view: number,
-    canDelete: boolean,
     url: string,
     author_name: string,
     uid: number,
@@ -86,7 +85,7 @@ export default function ArticleColumn(props: ArticleColumnProps) {
         <div className="post-column w-5/12 dark:border-gh-gray-7 dark:bg-gh-subtledarkbg md:w-3/12">
             <div id={"article-info-" + props.id}>
                 <div className="flex flex-row justify-between items-center gap-1">
-                        <div className={props.canDelete ? "w-2/3" : ""} >
+                        <div className="" >
                             <div className="article-info-list-item">
                                 <i className="fa-regular fa-paper-plane"></i>
                                 <a
@@ -125,7 +124,7 @@ export default function ArticleColumn(props: ArticleColumnProps) {
                             </div>
                         </div>
 
-                    {props.canDelete && (
+                    {/* {props.canDelete && (
                         <button
                             id={`delete-btn-${props.id}`}
                             className="float-right bg-gh-gray-1 gh-border dark:border-gh-darkborder dark:bg-gh-red-8 dark:hover:bg-gh-gray-8 px-2 py-1 rounded-xl text-gh-gray-9 hover:bg-gh-red-6 hover:text-white w-1/3"
@@ -133,7 +132,7 @@ export default function ArticleColumn(props: ArticleColumnProps) {
                         >
                             删除
                         </button>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
