@@ -1,11 +1,13 @@
-import Image from "next/image";
+
 import NoticeSection from "@/components/NoticeSection";
 import NewArticlesSection from "@/components/NewArticlesSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/header/Header";
 
 
-export default function Home() {
+
+export default async function Home() {
+
 	return (
 		<div>
 			<Header />

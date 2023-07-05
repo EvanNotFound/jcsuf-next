@@ -22,11 +22,15 @@ export default function ThemeSwitcher() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  if (!mounted) return(
+    <div className='gh-border dark:border-gh-darkborder px-[7px] py-[7px] items-center flex justify-center rounded-md'>
+      <MoonIcon size={16} />
+    </div>
+  ) ;
 
   return (
     <div>
-      <IconButton aria-label="Search" icon={resolvedTheme === 'light' ? MoonIcon : SunIcon} onClick={toggleTheme} />
+      <IconButton aria-label="ChangeTheme" icon={resolvedTheme === 'light' ? MoonIcon : SunIcon} onClick={toggleTheme} />
     </div>
   );
 }

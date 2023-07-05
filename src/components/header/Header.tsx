@@ -1,10 +1,11 @@
 import Link from "next/link";
-import ThemeSwitcher from "@/components/header/ThemeSwitcher";
-import dynamic from 'next/dynamic';
-import SearchBox from "./SearchBox";
+
+import SearchBox from "@/components/header/SearchBox";
+import dynamic from "next/dynamic";
 
 
-const UserProfile = dynamic(() => import('@/components/header/UserProfile'), { ssr: false });
+const UserProfile = dynamic(() => import('@/components/header/UserProfile'), { ssr: true });
+const ThemeSwitcher = dynamic(() => import('@/components/header/ThemeSwitcher'), { ssr: true });
 
 export default function Header() {
 
@@ -26,7 +27,7 @@ export default function Header() {
 						id="desktop"
 						className="mr-6 hidden items-center gap-5 text-base md:flex"
 					>
-						<SearchBox />
+						{/* <SearchBox /> */}
   
 						<Link
 							href="/auth/signin"
