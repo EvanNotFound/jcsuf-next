@@ -1,9 +1,8 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { formatDateTime } from '@/components/templates/ArticleColumn';
+import formatTime from '@/utils/formatTime';
 import { Suspense, useState, useEffect } from 'react';
 import getUserInfo from '@/lib/getUserInfo';
-import { type } from 'os';
 
 const PostVote = dynamic(() => import('@/components/post/PostVote'));
 
@@ -64,7 +63,7 @@ function PostComments({ comments }: Props) {
           <div className="h-8 bg-gh-bg dark:bg-gh-subtledarkbg w-full rounded-tr-xl border-b border-gh-border dark:border-gh-darkborder flex flex-row pl-4 items-center">
             <p className="text-sm font-bold">{userInfo?.name}</p>
             <p className="text-sm text-gh-gray-7 dark:text-gh-gray-2 ml-2">
-              {formatDateTime(comment.ctime)}
+              {formatTime(comment.ctime)}
             </p>
           </div>
           <div

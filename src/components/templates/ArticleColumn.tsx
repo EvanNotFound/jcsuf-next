@@ -1,5 +1,8 @@
 import Link from "next/link";
-import {ArrowUpIcon, ArrowDownIcon, CommentDiscussionIcon, FlameIcon} from '@primer/octicons-react'
+import {ArrowUpIcon, ArrowDownIcon, CommentDiscussionIcon, FlameIcon, TrashIcon} from '@primer/octicons-react'
+import DeleteButton from "../home/DeleteButton";
+import formatTime from "@/utils/formatTime";
+
 
 type ArticleColumnProps = {
     id: number,
@@ -13,22 +16,11 @@ type ArticleColumnProps = {
     url: string,
     author_name: string,
     uid: number,
-    author: number
+    author: number,
+    admin: boolean
 }
 
-export function formatDateTime(date: number) {
-	var dateObj = new Date(date);
-	var currentYear = new Date().getFullYear();
-	var year = dateObj.getFullYear();
-	var month = dateObj.toLocaleString('default', { month: 'short' });
-	var day = String(dateObj.getDate()).padStart(2, '0');
-	
-	if (year === currentYear) {
-		return month + ' ' + day;
-	} else {
-		return year + ' ' + month + ' ' + day;
-	}
-}
+
 
 export default function ArticleColumn(props: ArticleColumnProps) {
     return (
@@ -85,7 +77,7 @@ export default function ArticleColumn(props: ArticleColumnProps) {
         <div className="post-column w-5/12 dark:border-gh-gray-7 dark:bg-gh-subtledarkbg md:w-3/12">
             <div id={"article-info-" + props.id}>
                 <div className="flex flex-row justify-between items-center gap-1">
-                        <div className="" >
+                        <div className={props.admin ? "w-2/3" : "w-full"} >
                             <div className="article-info-list-item">
                                 <i className="fa-regular fa-paper-plane"></i>
                                 <a
@@ -107,7 +99,7 @@ export default function ArticleColumn(props: ArticleColumnProps) {
                             <div className="article-info-list-item md:mb-0">
                                 <i className="fa-regular fa-calendar-days"></i>
                                 <p className="ml-1 inline">
-                                    {formatDateTime(props.ctime)}
+                                    {formatTime(props.ctime)}
                                 </p>
                             </div>
                             <div className="mb-1 text-sm md:hidden md:text-base">
@@ -124,15 +116,9 @@ export default function ArticleColumn(props: ArticleColumnProps) {
                             </div>
                         </div>
 
-                    {/* {props.canDelete && (
-                        <button
-                            id={`delete-btn-${props.id}`}
-                            className="float-right bg-gh-gray-1 gh-border dark:border-gh-darkborder dark:bg-gh-red-8 dark:hover:bg-gh-gray-8 px-2 py-1 rounded-xl text-gh-gray-9 hover:bg-gh-red-6 hover:text-white w-1/3"
-                            data-id={props.id}
-                        >
-                            删除
-                        </button>
-                    )} */}
+                    {props.admin && (
+                       <DeleteButton postId={props.id} postTitle={props.title} />
+                    )}
                 </div>
             </div>
         </div>

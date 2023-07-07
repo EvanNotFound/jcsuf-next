@@ -12,7 +12,7 @@ export default function SignUp() {
     return (
         <div>
             <Header />
-            <main className="flex justify-center items-center h-screen flex-col gap-3">
+            <main className="flex justify-center items-center h-screen flex-col gap-3 bg-white dark:bg-gh-subtledarkbg">
                 <div className="text-center text-2xl font-bold">
                         注册 JCSUF 账号
                     </div>

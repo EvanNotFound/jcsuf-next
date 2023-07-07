@@ -19,7 +19,7 @@ export default function PostVote({ like, dislike, avatar } : { like: number, dis
 					<IconButton aria-label="Like" icon={ArrowUpIcon} />
 
 				</div>
-                <p className="text-md text-gh-gray-8 dark:text-gh-gray-2">
+                <p className="text-base text-gh-gray-8 dark:text-gh-gray-2">
 					{like - dislike}
 				</p>
 				<div className="flex flex-row items-center gap-1">

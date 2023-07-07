@@ -11,8 +11,5 @@ export default async function getPostIdList() {
 			id: String(article.id),
 		},
 	}));
-
-	console.log(idList);
 	return idList;
-    
 }

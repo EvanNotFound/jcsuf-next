@@ -1,17 +1,13 @@
 import Link from "next/link";
-
+import ThemeSwitcher from "@/components/header/ThemeSwitcher";
+import UserProfile from "@/components/header/UserProfile";
 import SearchBox from "@/components/header/SearchBox";
-import dynamic from "next/dynamic";
-
-
-const UserProfile = dynamic(() => import('@/components/header/UserProfile'), { ssr: true });
-const ThemeSwitcher = dynamic(() => import('@/components/header/ThemeSwitcher'), { ssr: true });
 
 export default function Header() {
 
 	return (
 		<header
-			className="fixed left-0 top-0 z-40 flex h-20 w-full items-center justify-between border-b-[1.5px] border-gh-border bg-gh-bg p-4 backdrop-blur-xl dark:border-gh-darkborder dark:bg-gh-darkbg"
+			className="fixed left-0 top-0 z-40 flex h-20 w-full-no-cls items-center justify-between border-b-[1.5px] border-gh-border bg-gh-bg p-4 backdrop-blur-xl dark:border-gh-darkborder dark:bg-gh-darkbg"
 			id="nav-bar"
 		>
 			<section id="site_title" className="ml-0 md:ml-5">
@@ -28,24 +24,15 @@ export default function Header() {
 						className="mr-6 hidden items-center gap-5 text-base md:flex"
 					>
 						{/* <SearchBox /> */}
-  
-						<Link
-							href="/auth/signin"
-							title="登录"
-							id="signin-compose"
-							className="hover:no-underline"
-						>
-							登录
-						</Link>
 						<a
-							href="post.html"
+							href="/post"
 							title="帖子专区"
 							className="hover:no-underline"
 						>
 							帖子专区
 						</a>
 						<a
-							href="contact.html"
+							href="/contact"
 							title="联系管理员"
 							className="hover:no-underline"
 						>

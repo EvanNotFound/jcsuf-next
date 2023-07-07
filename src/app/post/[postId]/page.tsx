@@ -1,11 +1,12 @@
 import getPostDetails from "@/lib/getPostDetails";
-import { formatDateTime } from "@/components/templates/ArticleColumn";
+import formatTime from "@/utils/formatTime";
 import Header from "@/components/header/Header";
 import { Suspense } from "react";
 import PostComments from "@/components/post/PostComments";
 import PostVote from "@/components/post/PostVote";
 import getUserInfo from "@/lib/getUserInfo";
 import SkeletonLoader from "@/components/SkeletonLoader";
+import Footer from "@/components/Footer";
 
 type Params = {
 	params: {
@@ -75,7 +76,7 @@ export default async function Post({ params: { postId } }: Params) {
 								<div className="h-8 bg-gh-bg dark:bg-gh-subtledarkbg w-full rounded-tr-xl border-b border-gh-border dark:border-gh-darkborder flex flex-row pl-4 items-center">
 									<p className="text-sm font-bold">{userInfo.name}</p>
 									<p className="text-sm text-gh-gray-7 dark:text-gh-gray-2 ml-2">
-										{formatDateTime(post.ctime)}
+										{formatTime(post.ctime)}
 									</p>
 								</div>
 								<div className="p-5 w-10/12">{post.html}</div>
@@ -86,14 +87,15 @@ export default async function Post({ params: { postId } }: Params) {
 					</section>
 					<section
 						id="post-info"
-						className="hidden sm:flex w-3/12 h-screen p-8 border-l-[1.5px] border-solid border-gh-gray-2 dark:border-gh-gray-8 flex-col justify-between"
+						className="hidden sticky sm:flex w-3/12 h-screen p-8 border-l-[1.5px] border-solid border-gh-gray-2 dark:border-gh-gray-8 flex-col justify-between"
 					>
 						<div className="">
-							Published On: {formatDateTime(post.ctime)}
+							Published On: {formatTime(post.ctime)}
 						</div>
 					</section>
 				</Suspense>
 			</main>
+			<Footer />
 		</div>
 	);
 }

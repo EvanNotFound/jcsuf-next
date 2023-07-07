@@ -43,8 +43,8 @@ export default async function Home() {
 						ctime={1688985028000}
 						author_name="Admin"
 						uid={-1}
-						canDelete={false}
 						url={"/bugreport"}
+						admin={false}
 					/>
 					<div className="mx-2 mb-2 flex items-center justify-between border-b-2 border-solid border-gh-gray-1 p-3 dark:border-gh-gray-8 md:mx-6">
 						<h1 className="text-xl font-bold">最新帖子</h1>

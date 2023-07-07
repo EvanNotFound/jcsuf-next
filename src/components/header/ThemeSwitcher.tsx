@@ -23,8 +23,8 @@ export default function ThemeSwitcher() {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return(
-    <div className='gh-border dark:border-gh-darkborder px-[7px] py-[7px] items-center flex justify-center rounded-md'>
-      <MoonIcon size={16} />
+    <div className='gh-border dark:border-gh-darkborder px-[7px] py-[7px] items-center flex justify-center rounded-md '>
+      <MoonIcon size={16}/>
     </div>
   ) ;
 

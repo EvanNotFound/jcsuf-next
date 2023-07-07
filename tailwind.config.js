@@ -145,6 +145,20 @@ module.exports = {
           darkbg: '#24292f', //same as gray-9
           subtledarkbg: '#32383f', //same as gray-8
           darkborder: '#424a53', //same as gray-7
+          text: {
+            primary: '#24292f', //same as gray-9
+            secondary: '#57606a', //same as gray-6
+            tertiary: '#6e7781', //same as gray-5
+          },
+          dark: {
+            border: '#424a53', //same as gray-7
+            bg: '#24292f', //same as gray-9
+            text: {
+              primary: '#f6f8fa', //same as gray-0
+              secondary: '#afb8c1', //same as gray-3
+              tertiary: '#8c959f', //same as gray-4
+            },
+          },
         },
         
       },

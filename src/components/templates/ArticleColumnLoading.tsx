@@ -55,16 +55,6 @@ export default function ArticleColumnLoading() {
                                 <Skeleton containerClassName="flex-1" />
                             </div>
                         </div>
-
-                    {/* {props.canDelete && (
-                        <button
-                            id={`delete-btn-${props.id}`}
-                            className="float-right bg-gh-gray-1 gh-border dark:border-gh-darkborder dark:bg-gh-red-8 dark:hover:bg-gh-gray-8 px-2 py-1 rounded-xl text-gh-gray-9 hover:bg-gh-red-6 hover:text-white w-1/3"
-                            data-id={props.id}
-                        >
-                            删除
-                        </button>
-                    )} */}
                 </div>
             </div>
         </div>

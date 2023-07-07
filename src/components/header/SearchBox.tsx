@@ -4,11 +4,9 @@ import { TextInput } from "@primer/react";
 
 export default async function SearchBox() {
 	return (
-		<div
-			id="category-displayer"
-		>
+		<div>
 			{/* Github Bug:  trailingVisual={SearchIcon} */}
-            <TextInput aria-label="Search" placeholder="搜索帖子" id="search-content" />
+            <TextInput aria-label="Search" placeholder="搜索帖子" />
 		</div>
 
 	);
