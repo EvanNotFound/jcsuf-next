@@ -1,13 +1,13 @@
 'use client'
 import ArticleColumnLoading from "@/components/templates/ArticleColumnLoading";
 import ArticleColumn from "@/components/templates/ArticleColumn";
-import getNewPostsData from "@/lib/getNewPosts";
-import getLoginStatus from "@/lib/getLoginStatus";
+import useNewPostsData from "@/lib/getNewPosts";
+import useLoginStatus from "@/lib/useLoginStatus";
 
 
 export default function NewArticlesSection() {
-	const {posts, error, isLoading} = getNewPostsData();
-	const { user } = getLoginStatus();
+	const {posts, error, isLoading} = useNewPostsData();
+	const { user } = useLoginStatus();
 	
 	const isAdmin = user?.admin_level > 0
 	const userId = user?.uid

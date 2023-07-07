@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState, useRef, useEffect} from "react";
-import getLoginStatus from "@/lib/getLoginStatus";
+import useLoginStatus from "@/lib/useLoginStatus";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useDisclosure } from "@chakra-ui/react";
@@ -23,7 +23,7 @@ import Divider from "@/components/Divider";
 import calculateLevel from "@/utils/calculateLevel";
 
 export default function UserProfile() {
-	const { user, error, isLoading } = getLoginStatus();
+	const { user, error, isLoading } = useLoginStatus();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [isNameEditing, setNameEditing] = useState(false);
@@ -324,11 +324,11 @@ export default function UserProfile() {
 								</FormControl>
 							</div>
 						) : (
-							<>
+							<div className="h-full flex flex-center items-center justify-center">
 								<p className="text-center font-bold">
 									Welcome to JCSUF
 								</p>
-							</>
+							</div>
 						)}
 					</DrawerBody>
 
