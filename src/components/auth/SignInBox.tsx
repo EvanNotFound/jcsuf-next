@@ -46,7 +46,34 @@ export default function SignInBox() {
                 }, 500)
 				break;
 			case 1 || 2:
-				alert("邮箱或密码错误");
+				const toastErr = useToast();
+				const closeToastErr = () => {
+					toastErr.closeAll();
+				}
+				toastErr({
+					position: "top-right",
+					duration: 3500,
+					render: () => (
+						<div className="border border-solid border-gh-red-7/10 p-3 dark:border-gh-red-3/10 bg-gh-red-0 dark:bg-gh-red-9 rounded-lg flex flex-row items-center justify-between relative top-20">
+							<div>
+								<h3 className="font-bold text-gh-red-9 flex items-center">
+									<XIcon
+										size={16}
+										className="text-gh-red-6 mr-2"
+									/>
+									登录失败
+								</h3>
+								<p className="text-gh-red-9 text-sm">
+									邮箱或密码错误
+								</p>
+							</div>
+							<div>
+								<IconButton aria-label="Close" icon={XIcon} onClick={closeToastErr} variant="invisible"/>
+							</div>
+						</div>
+					),
+				});
+				
 		}
 	};
 

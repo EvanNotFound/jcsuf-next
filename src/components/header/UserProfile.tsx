@@ -13,17 +13,19 @@ import {
 	DrawerOverlay,
 	DrawerContent,
 	DrawerCloseButton,
+	useToast
 } from "@chakra-ui/react";
 import { Button, TextInput, FormControl, Label, Textarea } from "@primer/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { PencilIcon, CheckIcon } from "@primer/octicons-react";
+import { PencilIcon, CheckIcon, XIcon, CheckCircleFillIcon, XCircleFillIcon } from "@primer/octicons-react";
 import formatRelativeTime from "@/utils/formatRelativeTime";
 import Divider from "@/components/Divider";
 import calculateLevel from "@/utils/calculateLevel";
+import SignOutAuth from "@/lib/signOutAuth";
 
 export default function UserProfile() {
-	const { user, error, isLoading } = useLoginStatus();
+	const { user, error, isLoading, mutate, isValidating } = useLoginStatus();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [isNameEditing, setNameEditing] = useState(false);
@@ -33,7 +35,10 @@ export default function UserProfile() {
 	const descTextareaRef = useRef<HTMLTextAreaElement>(null);
 	const nameTextInputRef = useRef<HTMLInputElement>(null);
 	const router = useRouter();
-	console.log(user);
+
+	const toastSuccess = useToast();
+	const toastError = useToast();
+
 
 	const handleSignIn = () => {
 		onClose();
@@ -49,11 +54,80 @@ export default function UserProfile() {
 		}, 200);
 	};
 
-	const handleSignOut = () => {
+	const handleSignOut = async () => {
 		onClose();
+		const res = await SignOutAuth();
+		switch (res.code) {
+			case 0:
+				const closeToastSuccess = () => {
+					toastSuccess.closeAll();
+				};
+				toastSuccess({
+					position: "top-right",
+					duration: 3500,
+					render: () => (
+						<div className="border border-solid border-gh-green-7/10 p-3 dark:border-gh-green-3/10 bg-gh-green-0 dark:bg-gh-green-9 rounded-lg flex flex-row items-center justify-between relative top-20">
+							<div>
+								<h3 className="font-bold text-gh-green-9 flex items-center">
+									<CheckCircleFillIcon
+										size={16}
+										className="text-gh-green-6 mr-2"
+									/>
+									登出成功
+								</h3>
+							</div>
+							<div>
+								<Button
+									variant="invisible"
+									onClick={closeToastSuccess}
+								>
+									<XIcon
+										size={16}
+										className="text-gh-green-6"
+									/>
+								</Button>
+							</div>
+						</div>
+					),
+				});
+				break;
+			case 1:
+				const closeToastError = () => {
+					toastError.closeAll();
+				};
+				toastError({
+					position: "top-right",
+					duration: 3500,
+					render: () => (
+						<div className="border border-solid border-gh-red-7/10 p-3 dark:border-gh-red-3/10 bg-gh-red-0 dark:bg-gh-red-9 rounded-lg flex flex-row items-center justify-between relative top-20">
+							<div>
+								<h3 className="font-bold text-gh-red-9 flex items-center">
+									<XCircleFillIcon
+										size={16}
+										className="text-gh-red-6 mr-2"
+									/>
+									登出失败
+								</h3>
+							</div>
+							<div>
+								<Button
+									variant="invisible"
+									onClick={closeToastError}
+								>
+									<XIcon
+										size={16}
+										className="text-gh-red-6"
+									/>
+								</Button>
+							</div>
+						</div>
+					),
+				});
+		}
+				
 		setTimeout(() => {
-			router.push("/");
-		}, 200);
+			mutate({ user: { uid: -1 } });
+		}, 500);
 	};
 
 	const handleNameEditClick = () => {
@@ -151,13 +225,13 @@ export default function UserProfile() {
 			<div className="mr-2 flex items-center md:mr-4">
 				<div className="hidden flex-col md:flex">
 					<span id="namefield" className="font-bold">
-						{user.name}
+						{isValidating ? "游客" :user.name}
 					</span>
 					<span
 						id="levelfield"
 						className="text-right text-sm text-gh-gray-7 dark:text-gh-gray-3"
 					>
-						Exp {user.exp}
+						Exp {isValidating ? "0" : user.exp}
 					</span>
 				</div>
 				<div
@@ -166,7 +240,7 @@ export default function UserProfile() {
 					onClick={onOpen}
 				>
 					<img
-						src={user.avatar}
+						src={isValidating ? "https://evan.beee.top/img/2023/07/04/ce77faad77bd58e5167c340f6362827c.webp" : user.avatar}
 						id="ava-img"
 						className="gh-border m-0 ml-2 h-[42px] w-[42px] rounded-xl bg-gh-gray-1 p-1 dark:border-gh-gray-8 dark:bg-gh-gray-7"
 					/>
