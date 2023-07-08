@@ -12,6 +12,7 @@ export default function SignInBox() {
 	const [password, setPassword] = useState("");
 	const router = useRouter();
 	const toast = useToast();
+	const toastErr = useToast();
 
 	const handleSignIn = async () => {
 		const res = await signInAuth({ email, password });
@@ -46,7 +47,6 @@ export default function SignInBox() {
                 }, 500)
 				break;
 			case 1 || 2:
-				const toastErr = useToast();
 				const closeToastErr = () => {
 					toastErr.closeAll();
 				}
