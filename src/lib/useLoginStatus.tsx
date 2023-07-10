@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import {mutate} from "swr";
 
 const fetcher = (url: string) => fetch(url, {method: "GET",credentials: "include",}).then(res => res.json())
 

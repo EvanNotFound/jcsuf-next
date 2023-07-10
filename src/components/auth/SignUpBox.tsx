@@ -6,6 +6,7 @@ import {
 	Button,
 	Link,
 	IconButton,
+	Spinner,
 } from "@primer/react";
 import { use, useState } from "react";
 import signUpAuth from "@/lib/signUpAuth";
@@ -26,6 +27,7 @@ export default function SignUpBox() {
 	const [usernameError, setUsernameError] = useState("");
 	const [emailError, setEmailError] = useState("");
 	const [passwordFocused, setPasswordFocused] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const router = useRouter();
 
     //Toast Part
@@ -160,6 +162,7 @@ export default function SignUpBox() {
 	};
 
 	const handleSignUp = async () => {
+		setIsSubmitting(true);
 		if (username == "" || usernameError) {
 			const closeToastUsernameErr = () => {
                 toastUsernameErr.closeAll();
@@ -192,6 +195,7 @@ export default function SignUpBox() {
                     </div>
                 ),
             });
+			setIsSubmitting(false);
 			return;
 		}
 
@@ -227,6 +231,7 @@ export default function SignUpBox() {
                     </div>
                 ),
             });
+			setIsSubmitting(false);
 			return;
 		}
 
@@ -262,6 +267,7 @@ export default function SignUpBox() {
                     </div>
                 ),
             });
+			setIsSubmitting(false);
 			return;
 		}
 
@@ -297,6 +303,7 @@ export default function SignUpBox() {
                     </div>
                 ),
             });
+			setIsSubmitting(false);
 			return;
 		}
 
@@ -370,6 +377,7 @@ export default function SignUpBox() {
 						</div>
 					),
 				});
+				setIsSubmitting(false);
 				break;
 			case 2:
 				const closeToastSignUpErr2 = () => {
@@ -403,6 +411,7 @@ export default function SignUpBox() {
 						</div>
 					),
 				});
+				setIsSubmitting(false);
 		}
 	};
 
@@ -496,8 +505,10 @@ export default function SignUpBox() {
 					</FormControl>
 
 					<div className="flex justify-center mt-2 gap-3">
-						<Button variant="primary" block onClick={handleSignUp}>
-							Sign up
+						<Button variant="primary" block onClick={handleSignUp} disabled={isSubmitting}>
+							{
+								isSubmitting ? <Spinner size="small" /> : "Sign Up"
+							}
 						</Button>
 					</div>
 				</form>
