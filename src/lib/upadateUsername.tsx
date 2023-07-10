@@ -4,7 +4,7 @@ export default async function updateDescription(description: string) {
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded",
 		},
-		body: `desc=['${encodeURIComponent(description)}']`,
+		body: `desc=${encodeURIComponent(description)}`,
 		credentials: "include",
 	});
 
